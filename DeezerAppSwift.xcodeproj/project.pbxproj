@@ -72,8 +72,8 @@
 		0F43A05D2A72825D002D0D6C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0F43A0602A728A1C002D0D6C /* GenreViewController.swift */,
 				0F4256CA2A7A635100710303 /* Cells */,
+				0F43A0602A728A1C002D0D6C /* GenreViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

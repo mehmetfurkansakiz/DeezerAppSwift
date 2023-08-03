@@ -9,7 +9,7 @@ import Foundation
 
 
 class GenreViewModel {
-    var genres: [GenreDataModel] = []
+    var genres = [GenreDataModel]()
     
     func fetchGenres(completion: @escaping (Error?) -> Void) {
         let url = URL(string: "https://api.deezer.com/genre")!
@@ -25,14 +25,13 @@ class GenreViewModel {
                 
             }
         }
-        
-        func numberOfGenres() -> Int {
-            return genres.count
-        }
-        
-        func genre(at index: Int) -> GenreDataModel {
-            return genres[index]
-        }
-        
+    }
+    
+    func numberOfGenres() -> Int {
+        return genres.count
+    }
+    
+    func genre(at index: Int) -> GenreDataModel {
+        return genres[index]
     }
 }

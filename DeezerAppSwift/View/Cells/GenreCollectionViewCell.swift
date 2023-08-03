@@ -10,4 +10,8 @@ import UIKit
 class GenreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var genreImageView: UIImageView!
     @IBOutlet weak var genreNameLabel: UILabel!
+    
+    func configure(with genre: GenreDataModel) {
+        genreNameLabel.text = genre.name
+    }
 }
