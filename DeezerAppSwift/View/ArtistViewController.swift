@@ -31,7 +31,7 @@ class ArtistViewController: UIViewController, UICollectionViewDelegateFlowLayout
     func fetchArtists(for genreID: Int) {
         artistViewModel.fetchArtists(for: genreID) { error in
             if let error = error {
-                print("Error fetching artists: \(error.localizedDescription)")
+                print("Artist Data Fetch Error: \(error.localizedDescription)")
                 return
             }
 
@@ -52,6 +52,21 @@ class ArtistViewController: UIViewController, UICollectionViewDelegateFlowLayout
         cell.configure(with: artist)
         
         return cell
+    }
+    
+    //MARK: - Artist Detail Segue
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedArtist = artistViewModel.artist(at: indexPath.item)
+        performSegue(withIdentifier: "toArtistDetailVC", sender: selectedArtist)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toArtistDetailVC", let selectedArtist = sender as? ArtistDataModel {
+            if let artistDetailVC = segue.destination as? ArtistDetailViewController {
+                artistDetailVC.selectedArtist = selectedArtist
+            }
+        }
     }
     
 
