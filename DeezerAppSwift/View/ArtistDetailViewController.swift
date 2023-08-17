@@ -65,12 +65,28 @@ class ArtistDetailViewController: UIViewController, UICollectionViewDelegateFlow
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = collectionView.frame.width // Cell Weight
+        let itemWidth = collectionView.frame.width // Cell Width
         let itemHeight: CGFloat = 100 // Cell Height
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
     
+    //MARK: - Album Detail Segue
     
-
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAlbum = artistDetailViewModel.album(at: indexPath.item)
+        performSegue(withIdentifier: "toAlbumDetailVC", sender: selectedAlbum)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAlbumDetailVC", let selectedAlbum = sender as? AlbumDataModel {
+            if let albumDetailVC = segue.destination as? AlbumDetailViewController {
+                albumDetailVC.selectedAlbum = selectedAlbum
+                
+            }
+        }
+    }
+    
+    
+    
 }
