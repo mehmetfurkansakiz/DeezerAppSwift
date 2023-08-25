@@ -13,7 +13,6 @@ class ArtistDetailViewModel {
     
     func fetchAlbums(for artistID: Int, completion: @escaping (Error?) -> Void ) {
         let urlString = "https://api.deezer.com/artist/\(artistID)/albums"
-        print(urlString)
         guard let url = URL(string: urlString) else {
             let error = NSError(domain: "Invalid Album URL", code: 0, userInfo: nil)
             completion(error)

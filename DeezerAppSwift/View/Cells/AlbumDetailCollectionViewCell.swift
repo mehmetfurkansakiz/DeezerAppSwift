@@ -40,4 +40,11 @@ class AlbumDetailCollectionViewCell: UICollectionViewCell {
         return String(format: "%d:%02d", minutes, seconds)
     }
     
+    func configureLikeButton(isLiked: Bool) {
+        if isLiked {
+            likeButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
 }

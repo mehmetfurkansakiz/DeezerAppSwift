@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-
+    
     @IBOutlet weak var albumDetailCollectionView: UICollectionView!
     
     let albumDetailViewModel = AlbumDetailViewModel()
@@ -25,6 +26,12 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         if let albumID = selectedAlbum?.id {
             fetchAlbum(for: albumID)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        albumDetailCollectionView.reloadData()
     }
     
     func fetchAlbum(for albumID: Int) {
@@ -50,9 +57,10 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         let albumDetail = albumDetailViewModel.album[indexPath.row]
         cell.configure(with: albumDetail, selectedAlbum: selectedAlbum!)
         
-//        ImageLoader.shared.loadImage(from: selectedAlbum!.cover_medium) { image in
-//            cell.albumImageView.image = image
-//        }
+        let isLiked = albumDetailViewModel.isLiked(album: albumDetail, context: CoreDataStack.shared.persistentContainer.viewContext)
+           cell.configureLikeButton(isLiked: isLiked)
+        
+        cell.likeButton.tag = indexPath.row  // Like Button Tag
         
         return cell
     }
@@ -65,5 +73,19 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         
         return CGSize(width: itemWidth, height: itemHeight)
     }
-
+    
+    @IBAction func likeButtonTapped(_ sender: UIButton) {
+        
+        let buttonTag = sender.tag
+        let indexPath = IndexPath(row: buttonTag, section: 0)
+        
+        let albumDetail = albumDetailViewModel.album(at: indexPath.row)
+        albumDetailViewModel.toggleLike(for: albumDetail, for: selectedAlbum!)
+        
+        if let cell = albumDetailCollectionView.cellForItem(at: indexPath) as? AlbumDetailCollectionViewCell {
+            let isLiked = albumDetailViewModel.isLiked(album: albumDetail, context: CoreDataStack.shared.persistentContainer.viewContext)
+            cell.configureLikeButton(isLiked: isLiked)
+        }
+    }
+    
 }
