@@ -13,6 +13,8 @@ class AlbumDetailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var songDurationLabel: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var albumDetailView: UIView!
     
     func configure(with albumDetail: AlbumDetailDataModel, selectedAlbum: AlbumDataModel) {
         
@@ -31,6 +33,7 @@ class AlbumDetailCollectionViewCell: UICollectionViewCell {
         
         songTitleLabel.text = albumDetail.title
         songDurationLabel.text = formatSongDuration(albumDetail.duration)
+        playButton.setTitle("", for: .normal)
             
     }
     
@@ -46,5 +49,9 @@ class AlbumDetailCollectionViewCell: UICollectionViewCell {
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+    }
+    
+    func configurePlayButton(isPlaying: Bool) {
+        playButton.isHidden = !isPlaying
     }
 }

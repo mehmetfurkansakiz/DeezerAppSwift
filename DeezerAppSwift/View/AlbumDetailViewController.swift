@@ -8,12 +8,13 @@
 import UIKit
 import CoreData
 
-class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var albumDetailCollectionView: UICollectionView!
     
     let albumDetailViewModel = AlbumDetailViewModel()
     var selectedAlbum : AlbumDataModel?
+    var currentlyPlayingIndexPath: IndexPath? // To keep of currently playing song
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +59,46 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         cell.configure(with: albumDetail, selectedAlbum: selectedAlbum!)
         
         let isLiked = albumDetailViewModel.isLiked(album: albumDetail, context: CoreDataStack.shared.persistentContainer.viewContext)
-           cell.configureLikeButton(isLiked: isLiked)
-        
+        cell.configureLikeButton(isLiked: isLiked)
         cell.likeButton.tag = indexPath.row  // Like Button Tag
         
+        let isPlaying = indexPath == currentlyPlayingIndexPath
+        cell.configurePlayButton(isPlaying: isPlaying)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(albumDetailViewTapped(_:)))
+        cell.contentView.addGestureRecognizer(tapGesture)
+        
         return cell
+    }
+    
+    @objc func albumDetailViewTapped(_ sender: UITapGestureRecognizer) {
+        
+        if let tappedCell = sender.view?.superview as? AlbumDetailCollectionViewCell,
+           let indexPath = albumDetailCollectionView.indexPath(for: tappedCell) {
+            
+            if currentlyPlayingIndexPath == indexPath {
+                albumDetailViewModel.stopPreview()
+                currentlyPlayingIndexPath = nil
+                tappedCell.configurePlayButton(isPlaying: false)
+            } else {
+                if let previousPlayingIndexPath = currentlyPlayingIndexPath, let previousPlayingCell = albumDetailCollectionView.cellForItem(at: previousPlayingIndexPath) as? AlbumDetailCollectionViewCell {
+                    previousPlayingCell.configurePlayButton(isPlaying: false)
+                }
+                currentlyPlayingIndexPath = indexPath
+                tappedCell.configurePlayButton(isPlaying: true)
+                
+                let albumDetail = albumDetailViewModel.album[indexPath.row]
+                albumDetailViewModel.playPreview(for: albumDetail)
+                
+                // Stop the audio after 30 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                    if tappedCell.playButton.isHidden == false {
+                        AudioManager.shared.stopAudio()
+                        tappedCell.configurePlayButton(isPlaying: false)
+                    }
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -87,5 +123,4 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
             cell.configureLikeButton(isLiked: isLiked)
         }
     }
-    
 }

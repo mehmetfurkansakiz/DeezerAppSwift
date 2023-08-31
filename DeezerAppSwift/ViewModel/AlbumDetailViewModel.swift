@@ -11,6 +11,7 @@ import CoreData
 class AlbumDetailViewModel {
     
     var album = [AlbumDetailDataModel]()
+    var isPreviewPlaying = false
     
     func fetchAlbum(for albumID: Int, completion: @escaping (Error?) -> Void ) {
         let urlString = "https://api.deezer.com/album/\(albumID)/tracks"
@@ -38,6 +39,20 @@ class AlbumDetailViewModel {
     
     func album(at index: Int) -> AlbumDetailDataModel {
         return album[index]
+    }
+    
+    func playPreview(for song: AlbumDetailDataModel) {
+        
+        print("Trying to play preview for: \(song.title)")
+        if !song.preview.isEmpty, let previewURL = URL(string: song.preview) {
+            isPreviewPlaying = true
+            AudioManager.shared.playAudio(from: previewURL)
+        }
+    }
+    
+    func stopPreview() {
+        AudioManager.shared.stopAudio()
+        isPreviewPlaying = false
     }
     
     //MARK: - Liked Song Funcs
@@ -73,6 +88,7 @@ class AlbumDetailViewModel {
         likedSong.songTitle = albumDetail.title
         likedSong.songDuration = Int32(albumDetail.duration)
         likedSong.songImage = selectedAlbum.cover_medium
+        likedSong.songPreview = albumDetail.preview
         
     }
     
@@ -105,5 +121,4 @@ class AlbumDetailViewModel {
             }
         }.resume()
     }
-    
 }
