@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F165B7D2A994DDF00A49A49 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F165B7C2A994DDF00A49A49 /* AudioManager.swift */; };
 		0F2DF9E32A7EFFEC00356508 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DF9E22A7EFFEC00356508 /* AlbumCollectionViewCell.swift */; };
 		0F4256CC2A7A8CBA00710303 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4256CB2A7A8CBA00710303 /* GenreCollectionViewCell.swift */; };
 		0F4256CE2A7A9B0700710303 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4256CD2A7A9B0700710303 /* GenreViewModel.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F165B7C2A994DDF00A49A49 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		0F2DF9E22A7EFFEC00356508 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F4256CB2A7A8CBA00710303 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F4256CD2A7A9B0700710303 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				0F4256D12A7AB89F00710303 /* APIManager.swift */,
 				0FE233382A81A4F6008B2D99 /* ImageLoader.swift */,
 				0FA5525C2A83F3E40083841F /* ColorPalette.swift */,
+				0F165B7C2A994DDF00A49A49 /* AudioManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				0F4256D22A7AB89F00710303 /* APIManager.swift in Sources */,
 				0FAC732E2A7C513B00168DA4 /* ArtistViewController.swift in Sources */,
 				0F2DF9E32A7EFFEC00356508 /* AlbumCollectionViewCell.swift in Sources */,
+				0F165B7D2A994DDF00A49A49 /* AudioManager.swift in Sources */,
 				0F4FC4B52A8E84D200576734 /* LikesViewController.swift in Sources */,
 				0FCB35B92A90EC7A004A73CD /* CoreDataStack.swift in Sources */,
 			);
