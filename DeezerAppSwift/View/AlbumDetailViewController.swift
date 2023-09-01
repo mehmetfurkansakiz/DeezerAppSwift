@@ -33,6 +33,10 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         super.viewWillAppear(animated)
         
         albumDetailCollectionView.reloadData()
+        
+        albumDetailViewModel.stopPreview()
+        
+        currentlyPlayingIndexPath = nil
     }
     
     func fetchAlbum(for albumID: Int) {

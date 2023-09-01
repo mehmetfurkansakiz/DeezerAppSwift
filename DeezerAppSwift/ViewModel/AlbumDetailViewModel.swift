@@ -45,14 +45,12 @@ class AlbumDetailViewModel {
         
         print("Trying to play preview for: \(song.title)")
         if !song.preview.isEmpty, let previewURL = URL(string: song.preview) {
-            isPreviewPlaying = true
             AudioManager.shared.playAudio(from: previewURL)
         }
     }
     
     func stopPreview() {
         AudioManager.shared.stopAudio()
-        isPreviewPlaying = false
     }
     
     //MARK: - Liked Song Funcs
