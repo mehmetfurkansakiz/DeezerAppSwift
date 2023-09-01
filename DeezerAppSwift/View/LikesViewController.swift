@@ -13,6 +13,7 @@ class LikesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     var likedSongs: [LikedModel] = []
     let likesViewModel = LikesViewModel()
+    var currentlyPlayingIndexPath: IndexPath? // To keep of currently playing song
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,10 @@ class LikesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         likedSongs = likesViewModel.fetchLikedSongs()
         likesCollectionView.reloadData()
+        
+        likesViewModel.stopPreview()
+        
+        currentlyPlayingIndexPath = nil
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -46,7 +51,43 @@ class LikesViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         cell.likeButton.tag = indexPath.row // Like Button Tag
         
+        let isPlaying = indexPath == currentlyPlayingIndexPath
+        cell.configurePlayButton(isPlaying: isPlaying)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(likesViewTapped(_:)))
+        cell.contentView.addGestureRecognizer(tapGesture)
+        
         return cell
+    }
+    
+    @objc func likesViewTapped(_ sender: UITapGestureRecognizer) {
+        
+        if let tappedCell = sender.view?.superview as? LikesCollectionViewCell, let indexPath = likesCollectionView.indexPath(for: tappedCell) {
+            
+            if currentlyPlayingIndexPath == indexPath {
+                likesViewModel.stopPreview()
+                currentlyPlayingIndexPath = nil
+                tappedCell.configurePlayButton(isPlaying: false)
+            } else {
+                if let previousPlayingIndexPath = currentlyPlayingIndexPath, let previousPlayingCell = likesCollectionView.cellForItem(at: previousPlayingIndexPath) as? LikesCollectionViewCell {
+                    previousPlayingCell.configurePlayButton(isPlaying: false)
+                }
+                currentlyPlayingIndexPath = indexPath
+                tappedCell.configurePlayButton(isPlaying: true)
+                
+                let likedSongs = likesViewModel.fetchLikedSongs()
+                let selectedSong = likedSongs[indexPath.row]
+                likesViewModel.playPreview(for: selectedSong)
+                
+                // Stop the audio after 30 seconds
+                DispatchQueue.main.asyncAfter(deadline: .now() + 30) {
+                    if tappedCell.playButton.isHidden == false {
+                        AudioManager.shared.stopAudio()
+                        tappedCell.configurePlayButton(isPlaying: false)
+                    }
+                }
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

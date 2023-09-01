@@ -13,10 +13,12 @@ class LikesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var songDurationLabel: UILabel!
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak var playButton: UIButton!
     
     func configure(with likedSong: LikedModel) {
         songTitleLabel.text = likedSong.songTitle
         songDurationLabel.text = formatSongDuration(Int(likedSong.songDuration))
+        playButton.setTitle("", for: .normal)
         
         if let imageUrlString = likedSong.songImage, let imageURL = URL(string: imageUrlString) {
             URLSession.shared.dataTask(with: imageURL) { data, response, error in
@@ -39,12 +41,6 @@ class LikesCollectionViewCell: UICollectionViewCell {
         self.albumImageView.layer.cornerRadius = 8.0
         self.albumImageView.layer.masksToBounds = true
         
-        // Set up gray border for the cell
-        self.layer.borderWidth = 0.5
-        self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.cornerRadius = 8.0
-        self.layer.masksToBounds = true
-        
     }
     
     func formatSongDuration(_ duration: Int) -> String {
@@ -59,5 +55,9 @@ class LikesCollectionViewCell: UICollectionViewCell {
         } else {
             likeButton.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+    }
+    
+    func configurePlayButton(isPlaying: Bool) {
+        playButton.isHidden = !isPlaying
     }
 }

@@ -4,6 +4,7 @@
         <attribute name="songDuration" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="songID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="songImage" optional="YES" attributeType="String"/>
+        <attribute name="songPreview" optional="YES" attributeType="String"/>
         <attribute name="songTitle" optional="YES" attributeType="String"/>
     </entity>
 </model>

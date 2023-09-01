@@ -23,6 +23,17 @@ class LikesViewModel {
         }
     }
     
+    func playPreview(for song: LikedModel) {
+        if let previewURL = URL(string: song.songPreview!) {
+            AudioManager.shared.playAudio(from: previewURL)
+        }
+    }
+    
+    func stopPreview() {
+        AudioManager.shared.stopAudio()
+    }
+    
+    //MARK: - Liked Song Funcs
     func toggleLike(for likedSong: LikedModel) {
         let context = DeezerAppSwift.CoreDataStack.shared.persistentContainer.viewContext
         
