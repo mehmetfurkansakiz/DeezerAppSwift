@@ -20,20 +20,13 @@ class LikesCollectionViewCell: UICollectionViewCell {
         songDurationLabel.text = formatSongDuration(Int(likedSong.songDuration))
         playButton.setTitle("", for: .normal)
         
-        if let imageUrlString = likedSong.songImage, let imageURL = URL(string: imageUrlString) {
-            URLSession.shared.dataTask(with: imageURL) { data, response, error in
-                if let error = error {
-                    print("Error downloading image in LikedPage: \(error)")
-                    return
-                }
+            
+        ImageLoader.shared.loadImage(from: likedSong.songImage!) { image in
                 
-                if let image = UIImage(data: data!) {
-                    DispatchQueue.main.async {
-                        self.albumImageView.image = image
-                    }
+                DispatchQueue.main.async {
+                    self.albumImageView.image = image
                 }
-            }.resume()
-        }
+            }
         
         // Set up black border and rounded corners for albumImageView
         self.albumImageView.layer.borderWidth = 2.0
