@@ -10,8 +10,9 @@ import UIKit
 class ArtistDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet weak var artistImage: UIImageView!
-    @IBOutlet weak var artistNameTitle: UINavigationBar!
     @IBOutlet weak var albumCollectionView: UICollectionView!
+    @IBOutlet weak var artistDetailNavigationItem: UINavigationItem!
+    
     
     let artistDetailViewModel = ArtistDetailViewModel()
     var selectedArtist: ArtistDataModel?
@@ -35,7 +36,7 @@ class ArtistDetailViewController: UIViewController, UICollectionViewDelegateFlow
                 self.artistImage.backgroundColor = .darkGray
             }
         }
-        artistNameTitle.topItem?.title = selectedArtist?.name
+        artistDetailNavigationItem.title = selectedArtist?.name
     }
     
     func fetchAlbums(for artistID: Int) {

@@ -10,6 +10,7 @@ import UIKit
 class ArtistViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     @IBOutlet weak var artistCollectionView: UICollectionView!
+    @IBOutlet weak var artistNavigationItem: UINavigationItem!
     
     let artistViewModel = ArtistViewModel()
     var selectedGenre: GenreDataModel?
@@ -26,6 +27,8 @@ class ArtistViewController: UIViewController, UICollectionViewDelegateFlowLayout
         if let genreID = selectedGenre?.id {
             fetchArtists(for: genreID)
         }
+        
+        artistNavigationItem.title = selectedGenre?.name
     }
     
     func fetchArtists(for genreID: Int) {

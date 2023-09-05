@@ -11,6 +11,39 @@ class GenreCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var genreImageView: UIImageView!
     @IBOutlet weak var genreNameLabel: UILabel!
     
+    func configureNavTitleLogo(title: String,imageName: String) -> UIView {
+        
+        let titleView = UIView()
+        
+        let label = UILabel()
+        label.text = title
+        label.sizeToFit()
+        label.center = titleView.center
+        label.textAlignment = NSTextAlignment.center
+        
+        let image = UIImageView()
+        image.image = UIImage(named: imageName)
+        
+        let imageAspect = image.image!.size.width / image.image!.size.height
+        
+        let imageX = label.frame.origin.x - label.frame.size.height * imageAspect
+        let imageY = label.frame.origin.y
+        
+        let imageWidth = label.frame.size.height * imageAspect
+        let imageHeight = label.frame.size.height
+        
+        image.frame = CGRect(x: imageX, y: imageY, width: imageWidth, height: imageHeight)
+        
+        image.contentMode = UIView.ContentMode.scaleAspectFit
+        
+        titleView.addSubview(label)
+        titleView.addSubview(image)
+        
+        titleView.sizeToFit()
+        
+        return titleView
+    }
+    
     func configure(with genre: GenreDataModel) {
         genreNameLabel.text = genre.name
         

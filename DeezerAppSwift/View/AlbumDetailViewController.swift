@@ -11,6 +11,7 @@ import CoreData
 class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var albumDetailCollectionView: UICollectionView!
+    @IBOutlet weak var albumDetailNavigationItem: UINavigationItem!
     
     let albumDetailViewModel = AlbumDetailViewModel()
     var selectedAlbum : AlbumDataModel?
@@ -27,6 +28,8 @@ class AlbumDetailViewController: UIViewController, UICollectionViewDelegateFlowL
         if let albumID = selectedAlbum?.id {
             fetchAlbum(for: albumID)
         }
+        
+        albumDetailNavigationItem.title = selectedAlbum?.title
     }
     
     override func viewWillAppear(_ animated: Bool) {

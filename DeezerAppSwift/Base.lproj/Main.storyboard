@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Genre View Controller-->
+        <!--DeezerApp-->
         <scene sceneID="wrP-8D-lqI">
             <objects>
                 <viewController id="yyg-OQ-JTr" customClass="GenreViewController" customModule="DeezerAppSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fSI-0P-4bH">
-                                <rect key="frame" x="20" y="112" width="374" height="681"/>
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Vv6-ln-f3v">
                                     <size key="itemSize" width="150" height="150"/>
@@ -70,15 +70,16 @@
                         <viewLayoutGuide key="safeArea" id="X9e-fk-e7K"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="X9e-fk-e7K" firstAttribute="bottom" secondItem="fSI-0P-4bH" secondAttribute="bottom" constant="20" id="1TA-P3-mSc"/>
+                            <constraint firstItem="X9e-fk-e7K" firstAttribute="bottom" secondItem="fSI-0P-4bH" secondAttribute="bottom" id="1TA-P3-mSc"/>
                             <constraint firstItem="X9e-fk-e7K" firstAttribute="trailing" secondItem="fSI-0P-4bH" secondAttribute="trailing" constant="20" id="ITz-Ap-fCv"/>
                             <constraint firstItem="fSI-0P-4bH" firstAttribute="leading" secondItem="X9e-fk-e7K" secondAttribute="leading" constant="20" id="Wso-TJ-fcE"/>
-                            <constraint firstItem="fSI-0P-4bH" firstAttribute="top" secondItem="X9e-fk-e7K" secondAttribute="top" constant="20" id="Wx3-22-bA5"/>
+                            <constraint firstItem="fSI-0P-4bH" firstAttribute="top" secondItem="X9e-fk-e7K" secondAttribute="top" id="Wx3-22-bA5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7Mk-mP-uLC"/>
+                    <navigationItem key="navigationItem" title="DeezerApp" id="7Mk-mP-uLC"/>
                     <connections>
                         <outlet property="genreCollectionView" destination="fSI-0P-4bH" id="DMq-lq-s7h"/>
+                        <outlet property="genreNavigationItem" destination="7Mk-mP-uLC" id="NU9-Tz-e6v"/>
                         <segue destination="GLr-uV-qj8" kind="show" identifier="toArtistVC" id="tXD-dk-QFc"/>
                     </connections>
                 </viewController>
@@ -95,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBd-JL-7Cb" userLabel="Artist Collection View">
-                                <rect key="frame" x="20" y="112" width="374" height="681"/>
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C3s-ha-1Sh">
                                     <size key="itemSize" width="150" height="150"/>
@@ -147,14 +148,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Lah-Hb-inu" firstAttribute="trailing" secondItem="bBd-JL-7Cb" secondAttribute="trailing" constant="20" id="129-m7-xNL"/>
-                            <constraint firstItem="Lah-Hb-inu" firstAttribute="bottom" secondItem="bBd-JL-7Cb" secondAttribute="bottom" constant="20" id="7r1-rc-1WK"/>
-                            <constraint firstItem="bBd-JL-7Cb" firstAttribute="top" secondItem="Lah-Hb-inu" secondAttribute="top" constant="20" id="ZEF-jN-DV2"/>
+                            <constraint firstItem="Lah-Hb-inu" firstAttribute="bottom" secondItem="bBd-JL-7Cb" secondAttribute="bottom" id="7r1-rc-1WK"/>
+                            <constraint firstItem="bBd-JL-7Cb" firstAttribute="top" secondItem="Lah-Hb-inu" secondAttribute="top" id="ZEF-jN-DV2"/>
                             <constraint firstItem="bBd-JL-7Cb" firstAttribute="leading" secondItem="Lah-Hb-inu" secondAttribute="leading" constant="20" id="neI-bB-Vrs"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mpZ-Qx-WI1"/>
+                    <navigationItem key="navigationItem" title="genre title" id="mpZ-Qx-WI1"/>
                     <connections>
                         <outlet property="artistCollectionView" destination="bBd-JL-7Cb" id="d0B-3N-JLI"/>
+                        <outlet property="artistNavigationItem" destination="mpZ-Qx-WI1" id="mLF-jC-xDq"/>
                         <segue destination="Yud-RE-Bpi" kind="show" identifier="toArtistDetailVC" id="ccg-Hw-xID"/>
                     </connections>
                 </viewController>
@@ -162,7 +164,7 @@
             </objects>
             <point key="canvasLocation" x="4175.36231884058" y="-241.07142857142856"/>
         </scene>
-        <!--Artist Detail View Controller-->
+        <!--artist name title-->
         <scene sceneID="omi-hc-ArI">
             <objects>
                 <viewController id="Yud-RE-Bpi" customClass="ArtistDetailViewController" customModule="DeezerAppSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -170,20 +172,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-ZI-QxA">
-                                <rect key="frame" x="0.0" y="136" width="414" height="254"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pZi-ZI-QxA">
+                                <rect key="frame" x="0.0" y="92" width="414" height="298"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="254" id="gnd-hr-KjM"/>
+                                    <constraint firstAttribute="height" constant="298" id="z29-hf-4T2"/>
                                 </constraints>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oB0-Ih-dRf">
-                                <rect key="frame" x="0.0" y="92" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="artist name" id="zHa-Uu-42T"/>
-                                </items>
-                            </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o2j-HU-E0B">
-                                <rect key="frame" x="20" y="410" width="374" height="383"/>
+                                <rect key="frame" x="20" y="410" width="374" height="403"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EzG-Ny-8Ks">
                                     <size key="itemSize" width="370" height="100"/>
@@ -246,23 +242,20 @@
                         <constraints>
                             <constraint firstItem="SUO-QS-5SG" firstAttribute="trailing" secondItem="o2j-HU-E0B" secondAttribute="trailing" constant="20" id="3KM-FE-Vgh"/>
                             <constraint firstItem="pZi-ZI-QxA" firstAttribute="trailing" secondItem="SUO-QS-5SG" secondAttribute="trailing" id="3sA-uZ-7HN"/>
-                            <constraint firstItem="SUO-QS-5SG" firstAttribute="bottom" secondItem="o2j-HU-E0B" secondAttribute="bottom" constant="20" id="JfA-4k-qlL"/>
+                            <constraint firstItem="SUO-QS-5SG" firstAttribute="bottom" secondItem="o2j-HU-E0B" secondAttribute="bottom" id="JfA-4k-qlL"/>
                             <constraint firstItem="pZi-ZI-QxA" firstAttribute="centerX" secondItem="pIH-tJ-PYD" secondAttribute="centerX" id="QZd-8Z-c1O"/>
                             <constraint firstItem="o2j-HU-E0B" firstAttribute="leading" secondItem="SUO-QS-5SG" secondAttribute="leading" constant="20" id="R9S-S4-7X7"/>
-                            <constraint firstItem="pZi-ZI-QxA" firstAttribute="top" secondItem="oB0-Ih-dRf" secondAttribute="bottom" id="bWs-h3-7hc"/>
-                            <constraint firstItem="oB0-Ih-dRf" firstAttribute="trailing" secondItem="pZi-ZI-QxA" secondAttribute="trailing" id="cYc-gY-CcB"/>
-                            <constraint firstItem="o2j-HU-E0B" firstAttribute="top" secondItem="pZi-ZI-QxA" secondAttribute="bottom" constant="20" id="d9a-Ss-ZAi"/>
-                            <constraint firstItem="oB0-Ih-dRf" firstAttribute="leading" secondItem="pZi-ZI-QxA" secondAttribute="leading" id="hQr-0J-eiQ"/>
-                            <constraint firstItem="oB0-Ih-dRf" firstAttribute="top" secondItem="SUO-QS-5SG" secondAttribute="top" id="nE4-3l-u43"/>
                             <constraint firstItem="pZi-ZI-QxA" firstAttribute="leading" secondItem="SUO-QS-5SG" secondAttribute="leading" id="ouo-JG-fKR"/>
                             <constraint firstItem="o2j-HU-E0B" firstAttribute="centerX" secondItem="pIH-tJ-PYD" secondAttribute="centerX" id="rYc-x7-Eo5"/>
+                            <constraint firstItem="o2j-HU-E0B" firstAttribute="top" secondItem="pZi-ZI-QxA" secondAttribute="bottom" constant="20" id="whR-Dl-21a"/>
+                            <constraint firstItem="pZi-ZI-QxA" firstAttribute="top" secondItem="SUO-QS-5SG" secondAttribute="top" id="yHK-yC-9nc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="MtU-NC-kwW"/>
+                    <navigationItem key="navigationItem" title="artist name title" id="MtU-NC-kwW"/>
                     <connections>
                         <outlet property="albumCollectionView" destination="o2j-HU-E0B" id="MRh-q7-Afo"/>
+                        <outlet property="artistDetailNavigationItem" destination="MtU-NC-kwW" id="9Xs-WE-5xh"/>
                         <outlet property="artistImage" destination="pZi-ZI-QxA" id="LJy-tl-Mu5"/>
-                        <outlet property="artistNameTitle" destination="oB0-Ih-dRf" id="yL8-Aa-DeU"/>
                         <segue destination="UzM-V9-MJZ" kind="show" identifier="toAlbumDetailVC" id="05U-cu-suA"/>
                     </connections>
                 </viewController>
@@ -270,7 +263,7 @@
             </objects>
             <point key="canvasLocation" x="5142.0289855072469" y="-241.07142857142856"/>
         </scene>
-        <!--Album Detail View Controller-->
+        <!--album name title-->
         <scene sceneID="ao3-Gy-VUg">
             <objects>
                 <viewController id="UzM-V9-MJZ" customClass="AlbumDetailViewController" customModule="DeezerAppSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -279,7 +272,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HCA-7w-c4y">
-                                <rect key="frame" x="20" y="112" width="374" height="721"/>
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ay3-si-Dae">
                                     <size key="itemSize" width="374" height="120"/>
@@ -372,18 +365,19 @@
                         <constraints>
                             <constraint firstItem="sCi-CL-gxm" firstAttribute="trailing" secondItem="HCA-7w-c4y" secondAttribute="trailing" constant="20" id="AjA-G8-u0c"/>
                             <constraint firstItem="HCA-7w-c4y" firstAttribute="leading" secondItem="sCi-CL-gxm" secondAttribute="leading" constant="20" id="PhF-wl-jf0"/>
-                            <constraint firstItem="HCA-7w-c4y" firstAttribute="bottom" secondItem="sCi-CL-gxm" secondAttribute="bottom" constant="20" id="Qdt-OX-76i"/>
-                            <constraint firstItem="HCA-7w-c4y" firstAttribute="top" secondItem="sCi-CL-gxm" secondAttribute="top" constant="20" id="vi1-7T-Euj"/>
+                            <constraint firstItem="HCA-7w-c4y" firstAttribute="bottom" secondItem="sCi-CL-gxm" secondAttribute="bottom" id="Qdt-OX-76i"/>
+                            <constraint firstItem="HCA-7w-c4y" firstAttribute="top" secondItem="sCi-CL-gxm" secondAttribute="top" id="vi1-7T-Euj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aFF-Ed-C9n"/>
+                    <navigationItem key="navigationItem" title="album name title" id="aFF-Ed-C9n"/>
                     <connections>
                         <outlet property="albumDetailCollectionView" destination="HCA-7w-c4y" id="AAm-cx-5rN"/>
+                        <outlet property="albumDetailNavigationItem" destination="aFF-Ed-C9n" id="pr1-zT-yr9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bc7-xw-oAt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6255.072463768116" y="-241.07142857142856"/>
+            <point key="canvasLocation" x="6167" y="-241"/>
         </scene>
         <!--Home-->
         <scene sceneID="t5i-YN-Wct">
@@ -432,7 +426,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dWW-pz-gZi">
-                                <rect key="frame" x="20" y="112" width="374" height="681"/>
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pDS-LR-bf1">
                                     <size key="itemSize" width="374" height="120"/>
@@ -520,26 +514,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBc-Cx-TZx">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4PF-mP-p8o">
                                 <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Likes" id="ftr-rc-MLd"/>
+                                    <navigationItem title="Likes" id="W3G-ch-jzL"/>
                                 </items>
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="udZ-9t-wkV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="udZ-9t-wkV" firstAttribute="bottom" secondItem="dWW-pz-gZi" secondAttribute="bottom" constant="20" id="VMV-aL-aG6"/>
-                            <constraint firstItem="DBc-Cx-TZx" firstAttribute="leading" secondItem="udZ-9t-wkV" secondAttribute="leading" id="czm-mP-KkN"/>
+                            <constraint firstAttribute="trailing" secondItem="4PF-mP-p8o" secondAttribute="trailing" id="Ck0-JX-iW9"/>
+                            <constraint firstItem="dWW-pz-gZi" firstAttribute="top" secondItem="4PF-mP-p8o" secondAttribute="bottom" id="Lxi-Dd-S2n"/>
+                            <constraint firstItem="udZ-9t-wkV" firstAttribute="bottom" secondItem="dWW-pz-gZi" secondAttribute="bottom" id="VMV-aL-aG6"/>
+                            <constraint firstItem="4PF-mP-p8o" firstAttribute="leading" secondItem="t4Y-f5-54G" secondAttribute="leading" id="a29-r3-i3g"/>
+                            <constraint firstItem="4PF-mP-p8o" firstAttribute="top" secondItem="t4Y-f5-54G" secondAttribute="top" constant="48" id="m3h-mN-UbL"/>
                             <constraint firstItem="udZ-9t-wkV" firstAttribute="trailing" secondItem="dWW-pz-gZi" secondAttribute="trailing" constant="20" id="pv4-IQ-4Ke"/>
-                            <constraint firstItem="DBc-Cx-TZx" firstAttribute="top" secondItem="udZ-9t-wkV" secondAttribute="top" id="rmC-lk-qFP"/>
-                            <constraint firstItem="DBc-Cx-TZx" firstAttribute="trailing" secondItem="udZ-9t-wkV" secondAttribute="trailing" id="uIf-UZ-z7q"/>
                             <constraint firstItem="dWW-pz-gZi" firstAttribute="leading" secondItem="udZ-9t-wkV" secondAttribute="leading" constant="20" id="wrD-e0-TAD"/>
-                            <constraint firstItem="dWW-pz-gZi" firstAttribute="top" secondItem="DBc-Cx-TZx" secondAttribute="bottom" constant="20" id="xIR-xc-p8J"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Likes" image="heart.fill" catalog="system" id="Ywm-hZ-xuX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="likesCollectionView" destination="dWW-pz-gZi" id="0eE-MZ-WML"/>
                     </connections>
