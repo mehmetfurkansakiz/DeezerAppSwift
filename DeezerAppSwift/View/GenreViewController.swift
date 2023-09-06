@@ -13,7 +13,6 @@ class GenreViewController: UIViewController, UICollectionViewDelegateFlowLayout,
     @IBOutlet weak var genreNavigationItem: UINavigationItem!
     
     let genreViewModel = GenreViewModel()
-    let genreCollectionViewCell = GenreCollectionViewCell()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +26,7 @@ class GenreViewController: UIViewController, UICollectionViewDelegateFlowLayout,
         fetchGenres()
         
         // Navigation Bar Title with DeezerApp logo
-        genreNavigationItem.titleView = genreCollectionViewCell.configureNavTitleLogo(title: "DeezerApp", imageName: "AppLogo")
+        genreNavigationItem.titleView = genreViewModel.configureNavTitleLogo(title: "DeezerApp", imageName: "AppLogo")
         
     }
     

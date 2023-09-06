@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F165B7D2A994DDF00A49A49 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F165B7C2A994DDF00A49A49 /* AudioManager.swift */; };
+		0F1A9C1E2AA93505005E09C6 /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1A9C1D2AA93505005E09C6 /* GenreViewModel.swift */; };
 		0F2DF9E32A7EFFEC00356508 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2DF9E22A7EFFEC00356508 /* AlbumCollectionViewCell.swift */; };
 		0F4256CC2A7A8CBA00710303 /* GenreCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4256CB2A7A8CBA00710303 /* GenreCollectionViewCell.swift */; };
 		0F4256D02A7AA10600710303 /* GenreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4256CF2A7AA10600710303 /* GenreModel.swift */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		0F165B7C2A994DDF00A49A49 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		0F1A9C1D2AA93505005E09C6 /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
 		0F2DF9E22A7EFFEC00356508 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F4256CB2A7A8CBA00710303 /* GenreCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionViewCell.swift; sourceTree = "<group>"; };
 		0F4256CF2A7AA10600710303 /* GenreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModel.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				0F8648522A7EE7860059C736 /* ArtistDetailViewModel.swift */,
 				0F9FAD852A88305A00846530 /* AlbumDetailViewModel.swift */,
 				0F4FC4B62A8E850F00576734 /* LikesViewModel.swift */,
+				0F1A9C1D2AA93505005E09C6 /* GenreViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F1A9C1E2AA93505005E09C6 /* GenreViewModel.swift in Sources */,
 				0FB30A792A86EDC2008B97A2 /* AlbumDetailCollectionViewCell.swift in Sources */,
 				0F8648532A7EE7860059C736 /* ArtistDetailViewModel.swift in Sources */,
 				0F4256CC2A7A8CBA00710303 /* GenreCollectionViewCell.swift in Sources */,
