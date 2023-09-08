@@ -27,8 +27,13 @@ Deezer App allows you to explore the world of music using the Deezer API. The ap
 * [Core Data](https://developer.apple.com/documentation/coredata)
 * [Grand Central Dispatch](https://developer.apple.com/documentation/dispatch)
 
-## Architecture 📐
+## Storyboard 🗺
 
+<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/7e958ce0-11b5-4929-8bff-0ef124b396a6" width="600" height="410"/>
+
+## Architecture 📐
+<div>
+  <img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/48a8c36e-3fa2-47c0-b0d2-b92c4d5d7a6c" width="650" height="360"/>
+</div>
 The app uses the MVVM architecture. MVVM divides our code into three essential components: Model, View, and ViewModel. This design pattern promotes clean and maintainable code. It provides benefits such as clarity in separating concerns, along with advantages like testability, reusability, and flexibility.
-<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/48a8c36e-3fa2-47c0-b0d2-b92c4d5d7a6c" width="650" height="360"/>
 
