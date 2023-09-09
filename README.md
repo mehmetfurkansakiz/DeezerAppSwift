@@ -7,9 +7,9 @@ Deezer App allows you to explore the world of music using the Deezer API. The ap
 
 ## SS from the app 🏞
 
-|                  | Dark | Light |
-|------------------|------|-------|
-| Music Genres     |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/fd7e93cb-0d07-492a-a5c1-901c0f0a0785" width="220" height="480"/>      |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/b8d768bf-aaab-4a69-afa8-01f9774d1a94" width="240" height="480"/>       |
+|                  |      Dark       |      Light     |
+|------------------|-----------------|----------------|
+| Music Genres     |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/7b5c24cb-6e36-4430-964c-65061dfc5b52" width="220" height="480"/>      |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/b8d768bf-aaab-4a69-afa8-01f9774d1a94" width="240" height="480"/>       |
 | Artist Listing   |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/9f21e668-f1ea-4b1e-b5b7-d4fe7c162f49" width="220" height="480"/>      |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/47cfc446-b63f-418f-acec-cbe70a99abd0" width="240" height="480"/>       |
 | Artist Details   |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/66c76947-e14b-4f47-9c94-b27da193bb6f" width="220" height="480"/>      |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/f18e5f04-3b22-409c-9db8-4a10942437b8" width="240" height="480"/>       |
 | Album Details    |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/11e36e83-a999-406e-9823-e92890994a40" width="220" height="480"/>      |<img src="https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/4eeb386a-6c38-4d8f-84bb-bfccbc009d8b" width="240" height="480"/>       |
@@ -17,7 +17,7 @@ Deezer App allows you to explore the world of music using the Deezer API. The ap
 
 ## Video from the app 📱
 <div> 
-  <video src='https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/27f26749-8a19-4a63-8288-d641d26fd16e'/>
+  <video src='https://github.com/mehmetfurkansakiz/DeezerAppSwift/assets/62005335/7f983636-9c87-4aa3-bb4e-2d582ee78147'/>
 </div>
 
 ## Tech Stack 📚
