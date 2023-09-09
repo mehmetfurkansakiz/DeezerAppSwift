@@ -26,6 +26,7 @@ Deezer App allows you to explore the world of music using the Deezer API. The ap
 * [UIKit](https://developer.apple.com/documentation/uikit)
 * [Core Data](https://developer.apple.com/documentation/coredata)
 * [Grand Central Dispatch](https://developer.apple.com/documentation/dispatch)
+* [AVFoundation](https://developer.apple.com/documentation/avfoundation/)
 
 ## Storyboard 🗺
 
